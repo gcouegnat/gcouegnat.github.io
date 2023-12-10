@@ -1,5 +1,5 @@
 import numpy as np
-np.set_printoptions(precision=2,suppress=True)
+np.set_printoptions(suppress=True)
 
 ###
 ### Proprietes du pli
@@ -50,7 +50,7 @@ B = np.zeros_like(Q)
 D = np.zeros_like(Q)
 H = np.zeros_like(Q1)
 
-for k in xrange(len(angles)):
+for k in range(len(angles)):
     theta = angles[k]
     c = np.cos(theta)
     s = np.sin(theta)
@@ -71,17 +71,17 @@ for k in xrange(len(angles)):
     H += 0.8333333333 * (zk - zkm) * Q1p
     zkm += thicknesses[k]
 
-print "A: "
-print A
+print("A: ")
+print(A)
 
-print "B: "
-print B
+print("B: ")
+print(B)
 
-print "D: "
-print D
+print("D: ")
+print(D)
 
-print "H:"
-print H
+print("H:")
+print(H)
 
 ###
 ### Calcul du materiau ortho. equivalent
@@ -92,14 +92,14 @@ Exx = (A[0,0]*A[1,1] - A[0,1]**2)/(h*A[1,1])
 Eyy = (A[0,0]*A[1,1] - A[0,1]**2)/(h*A[0,0])
 Gxy = A[2,2]/h
 v = A[0,1]/A[1,1]
-print "Materiau ortho. membrane"
-print 'Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v
+print("Materiau ortho. membrane")
+print('Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v)
 
 # en flexion
 Exx = 12.0*(D[0,0]*D[1,1] - D[0,1]**2)/(h**3*D[1,1])
 Eyy = 12.0*(D[0,0]*D[1,1] - D[0,1]**2)/(h**3*D[0,0])
 Gxy = 12.0*D[2,2]/h**3
 v = D[0,1]/D[1,1]
-print "Materiau ortho. flexion"
-print 'Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v
+print("Materiau ortho. flexion")
+print('Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v)
 
