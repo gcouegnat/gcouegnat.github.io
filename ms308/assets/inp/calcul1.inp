@@ -1,0 +1,46 @@
+*heading
+MS308 TP3
+**
+** Maillage
+**
+*include, input=mesh1-twoplies-oneperply.inp
+**
+** Materiau
+** 
+*material, name=T300M18
+*elastic, type=engineering constant
+170000.0, 9000.0, 9000.0, 0.34, 0.34, 0.34, 4800.0, 4500.0, 
+4500.0
+**
+** Orientation
+** 
+*orientation, name=ori0
+1,0,0, 0,1,0,
+3, 0
+*orientation, name=ori90
+1,0,0,0,1,0,
+3, 90
+**
+** Section
+** 
+*solid section, elset=elset1, material=T300M18, orientation=ori90 
+*solid section, elset=elset2, material=T300M18, orientation=ori0 
+**
+** Conditions limites initiales
+** 
+*boundary
+xmin, XSYMM 
+ymin, YSYMM
+zmin, ZSYMM
+**
+** Step
+** 
+*step
+*static
+,1.0,
+*boundary
+xmax, 1, 1, 0.4
+**
+*output, history, variable=preselect
+*output, field, variable=preselect
+*end step
