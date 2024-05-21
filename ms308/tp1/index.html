@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="MS308 - Matériaux et structures composites">
+        <meta name="description" content="Matériaux et structures composites">
       
       
         <meta name="author" content="Guillaume Couégnat">
@@ -25,7 +25,7 @@
     
     
       
-        <title>Séance 1 - MS308</title>
+        <title>Séance 1 - Matériaux et Structures Composites</title>
       
     
     
@@ -63,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     
     
@@ -87,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href=".." title="MS308" class="md-header__button md-logo" aria-label="MS308" data-md-component="logo">
+    <a href=".." title="Matériaux et Structures Composites" class="md-header__button md-logo" aria-label="Matériaux et Structures Composites" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,7 +100,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            MS308
+            Matériaux et Structures Composites
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -173,13 +173,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="MS308" class="md-nav__button md-logo" aria-label="MS308" data-md-component="logo">
+    <a href=".." title="Matériaux et Structures Composites" class="md-nav__button md-logo" aria-label="Matériaux et Structures Composites" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    MS308
+    Matériaux et Structures Composites
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -386,37 +386,47 @@ coques sur plusieurs configurations d&rsquo;empilement.</p>
     stratifié symétrique pour les trois modélisations coques.</li>
 </ul>
 <p>Pour vous guider, vous pouvez vous référer aux <a href="../tutoriels/">tutoriels</a>, et particulièrement à celui sur la <a href="tutoriels#creation-dun-modele-composite">création du modèle coque composite</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Pour le mise en place des modèles coque &ldquo;générale&rdquo; et coque &ldquo;homogène&rdquo;, vous
 aurez besoin de calculer la matrice <em>ABBD</em> de la théorie des stratifiés, ainsi
 que les matériaux homogènes équivalents en membrane et en flexion.  </p>
 <p>Pour vous aider, vous pouvez utiliser le fichier
 <a href="../assets/helper.py"><code>helper.py</code></a>.  Après avoir téléchargé le fichier, dans un
 terminal, tapez : </p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;le<span class="w"> </span>dossier<span class="w"> </span>dans<span class="w"> </span>lequel<span class="w"> </span>se<span class="w"> </span>trouve<span class="w"> </span>helper.py&gt;
-python<span class="w"> </span>helper.py
+<div class="codehilite"><pre><span></span><code>cd &lt;le dossier dans lequel se trouve helper.py&gt;
+python helper.py
 </code></pre></div>
 
 <p>Vous devriez obtenir :</p>
-<div class="codehilite"><pre><span></span><code><span class="n">A</span><span class="p">:</span>
-<span class="p">[[</span> <span class="mf">448812.04</span>  <span class="mf">139074.24</span>       <span class="mf">0.</span>  <span class="p">]</span>
- <span class="p">[</span> <span class="mf">139074.24</span>  <span class="mf">448812.04</span>       <span class="mf">0.</span>  <span class="p">]</span>
- <span class="p">[</span>      <span class="mf">0.</span>         <span class="mf">0.</span>    <span class="mf">154868.9</span> <span class="p">]]</span>
-<span class="n">B</span><span class="p">:</span>
-<span class="p">[[</span><span class="o">-</span><span class="mf">0.</span>  <span class="mf">0.</span>  <span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span>  <span class="mf">0.</span> <span class="o">-</span><span class="mf">0.</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.</span> <span class="o">-</span><span class="mf">0.</span>  <span class="mf">0.</span><span class="p">]]</span>
-<span class="n">D</span><span class="p">:</span>
-<span class="p">[[</span> <span class="mf">3636240.38</span>   <span class="mf">260045.67</span>   <span class="mf">126815.43</span><span class="p">]</span>
- <span class="p">[</span>  <span class="mf">260045.67</span>  <span class="mf">2114455.23</span>   <span class="mf">126815.43</span><span class="p">]</span>
- <span class="p">[</span>  <span class="mf">126815.43</span>   <span class="mf">126815.43</span>   <span class="mf">344283.87</span><span class="p">]]</span>
-<span class="n">H</span><span class="p">:</span>
-<span class="p">[[</span> <span class="mf">23553.33</span>      <span class="mf">0.</span>  <span class="p">]</span>
- <span class="p">[</span>     <span class="mf">0.</span>    <span class="mf">23553.33</span><span class="p">]]</span>
-<span class="n">Materiau</span> <span class="n">ortho</span><span class="o">.</span> <span class="n">membrane</span>
-<span class="n">Ex</span><span class="p">:</span>  <span class="mf">50714.6050328</span> <span class="n">Ey</span><span class="p">:</span>  <span class="mf">50714.6050328</span> <span class="n">Gxy</span><span class="p">:</span>  <span class="mf">19358.6125181</span> <span class="n">nu</span><span class="p">:</span>  <span class="mf">0.309871897726</span>
-<span class="n">Materiau</span> <span class="n">ortho</span><span class="o">.</span> <span class="n">flexion</span>
-<span class="n">Ex</span><span class="p">:</span>  <span class="mf">84474.8141511</span> <span class="n">Ey</span><span class="p">:</span>  <span class="mf">49121.6734885</span> <span class="n">Gxy</span><span class="p">:</span>  <span class="mf">8069.15312872</span> <span class="n">nu</span><span class="p">:</span>  <span class="mf">0.122984712655</span>
+<div class="codehilite"><pre><span></span><code>A:
+[[ 448812.04  139074.24       0.  ]
+[ 139074.24  448812.04       0.  ]
+[      0.         0.    154868.9 ]]
+B:
+[[-0.  0.  0.]
+[ 0.  0. -0.]
+[ 0. -0.  0.]]
+D:
+[[ 3636240.38   260045.67   126815.43]
+[  260045.67  2114455.23   126815.43]
+[  126815.43   126815.43   344283.87]]
+H:
+[[ 23553.33      0.  ]
+[     0.    23553.33]]
+Materiau ortho. membrane
+Ex:  50714.6050328 Ey:  50714.6050328 Gxy:  19358.6125181 nu:  0.309871897726
+Materiau ortho. flexion
+Ex:  84474.8141511 Ey:  49121.6734885 Gxy:  8069.15312872 nu:  0.122984712655
 </code></pre></div>
+
+<p>Pour changer la stratification, il faut modifier les lignes 37&ndash;39 :</p>
+<div class="codehilite"><pre><span></span><code># [0/90/45/-45]s
+angles = [0, np.pi/2.0, np.pi/4.0, -np.pi/4.0, -np.pi/4.0, np.pi/4, np.pi/2.0, 0] 
+thicknesses = [1, 1, 1, 1, 1, 1, 1, 1]
+</code></pre></div>
+
+</div>
 
 
 
@@ -438,7 +448,7 @@ python<span class="w"> </span>helper.py
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      ENSEIRB-MATMECA/Guillaume Couégnat
+      Bordeaux INP/Guillaume Couégnat
     </div>
   
   
