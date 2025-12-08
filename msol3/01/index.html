@@ -409,15 +409,13 @@ coques sur plusieurs configurations d&rsquo;empilement.</p>
 <li>Le troisième exercice consiste à comparer les charges limites de flambement d&rsquo;un
     stratifié symétrique pour les trois modélisations coques.</li>
 </ul>
-<p>Pour vous guider, vous pouvez vous référer aux <a href="../tutoriels/">tutoriels</a>, et particulièrement à celui sur la <a href="tutoriels#creation-dun-modele-composite">création du modèle coque composite</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>Pour vous guider, vous pouvez vous référer aux <a href="../tutoriels/">tutoriels</a></p>
 <p>Pour le mise en place des modèles coque &ldquo;générale&rdquo; et coque &ldquo;homogène&rdquo;, vous
 aurez besoin de calculer la matrice <em>ABBD</em> de la théorie des stratifiés, ainsi
 que les matériaux homogènes équivalents en membrane et en flexion.  </p>
 <p>Pour vous aider, vous pouvez utiliser le fichier
-<a href="../assets/helper.py"><code>helper.py</code></a>.  Après avoir téléchargé le fichier, dans un
-terminal, tapez : </p>
+<a href="../assets/helper.py"><code>helper.py</code></a>.  </p>
+<p>Après avoir téléchargé le fichier, dans un terminal, tapez : </p>
 <div class="codehilite"><pre><span></span><code>cd &lt;le dossier dans lequel se trouve helper.py&gt;
 python helper.py
 </code></pre></div>
@@ -444,13 +442,16 @@ Materiau ortho. flexion
 Ex:  84474.8141511 Ey:  49121.6734885 Gxy:  8069.15312872 nu:  0.122984712655
 </code></pre></div>
 
-<p>Pour changer la stratification, il faut modifier les lignes 37&ndash;39 :</p>
-<div class="codehilite"><pre><span></span><code># [0/90/45/-45]s
-angles = [0, np.pi/2.0, np.pi/4.0, -np.pi/4.0, -np.pi/4.0, np.pi/4, np.pi/2.0, 0] 
-thicknesses = [1, 1, 1, 1, 1, 1, 1, 1]
-</code></pre></div>
+<p>Pour changer la stratification (exercice 2), il faut modifier les lignes :</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">###</span>
+<span class="c1">### Definition de l&#39;empilement</span>
+<span class="c1">###</span>
 
-</div>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> 
+<span class="n">thicknesses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># --------------------------------------------------------------------------------</span>
+</code></pre></div>
 
 
 

@@ -1,5 +1,6 @@
 import numpy as np
-np.set_printoptions(suppress=True)
+
+np.set_printoptions(precision=4, suppress=True)
 
 ###
 ### Proprietes du pli
@@ -13,33 +14,47 @@ G23 = 2.76e3
 v12 = v13 = 0.301
 v23 = 0.396
 
-# matrice de souplesse
-S = np.array([[1.0/E1, -v12/E1, -v13/E1   , 0     , 0     , 0]       ,
-               [-v12/E1, 1.0/E2 , -v23/E2, 0      , 0      , 0]       ,
-               [-v13/E1, -v23/E2, 1.0/E3 , 0      , 0      , 0]       ,
-               [0      , 0      , 0      , 1.0/G23, 0      , 0]       ,
-               [0      , 0      , 0      , 0      , 1.0/G13, 0]       ,
-               [0      , 0      , 0      , 0      , 0      , 1.0/G12]]
-             )
-
-# matrice de rigidites reduites
-Q = np.linalg.inv( np.array([[S[0,0], S[0,1], 0],
-                             [S[1,0], S[1,1], 0], 
-                             [     0,      0, S[5,5]]]))
-
-Q1 = np.linalg.inv( np.array( [[S[3,3], 0], 
-                              [0,      S[4,4]]]))
-
 ###
 ### Definition de l'empilement
 ###
 
-# [0/90/45/-45]s
-angles = [0, np.pi/2.0, np.pi/4.0, -np.pi/4.0, -np.pi/4.0, np.pi/4, np.pi/2.0, 0] 
+angles = np.radians([0, 90, 45, -45, -45, 45, 90, 0]) 
 thicknesses = [1, 1, 1, 1, 1, 1, 1, 1]
 
+# --------------------------------------------------------------------------------
+
+assert(len(angles) == len(thicknesses))
+print(f'Epaisseur total : {sum(thicknesses)}')
+for i, (angle, thickness) in enumerate(zip(angles, thicknesses)):
+    print(f'Pli {i+1} : theta {angle:8.3f} h {thickness:8.3f}')
+
+
+
 ###
-### Calcul des matrices ABD
+### Calcul de la matrice de rigidité du pli
+###
+
+# matrice de souplesse
+S = np.array(
+    [
+        [1.0 / E1, -v12 / E1, -v13 / E1, 0, 0, 0],
+        [-v12 / E1, 1.0 / E2, -v23 / E2, 0, 0, 0],
+        [-v13 / E1, -v23 / E2, 1.0 / E3, 0, 0, 0],
+        [0, 0, 0, 1.0 / G23, 0, 0],
+        [0, 0, 0, 0, 1.0 / G13, 0],
+        [0, 0, 0, 0, 0, 1.0 / G12],
+    ]
+)
+
+# matrice de rigidites reduites
+Q = np.linalg.inv(
+    np.array([[S[0, 0], S[0, 1], 0], [S[1, 0], S[1, 1], 0], [0, 0, S[5, 5]]])
+)
+
+Q1 = np.linalg.inv(np.array([[S[3, 3], 0], [0, S[4, 4]]]))
+
+###
+### Calcul des matrices A, B, D
 ###
 
 h = np.sum(thicknesses)
@@ -48,20 +63,24 @@ zkm = -0.5 * h
 A = np.zeros_like(Q)
 B = np.zeros_like(Q)
 D = np.zeros_like(Q)
+
 H = np.zeros_like(Q1)
 
 for k in range(len(angles)):
     theta = angles[k]
     c = np.cos(theta)
     s = np.sin(theta)
-    
-    M = np.array([[c*c, s*s, -2*c*s],
-                  [s*s, c*c,  2*c*s],
-                  [c*s, -c*s, c*c-s*s]])
+
+    M = np.array(
+        [
+            [c * c, s * s, -2 * c * s],
+            [s * s, c * c, 2 * c * s],
+            [c * s, -c * s, c * c - s * s],
+        ]
+    )
     Qp = np.dot(M, np.dot(Q, M.transpose()))
-    
-    M1 = np.array([[c, s],
-                   [-s, c]])
+
+    M1 = np.array([[c, s], [-s, c]])
     Q1p = np.dot(M1, np.dot(Q1, M1.transpose()))
 
     zk = zkm + thicknesses[k]
@@ -84,22 +103,21 @@ print("H:")
 print(H)
 
 ###
-### Calcul du materiau ortho. equivalent
+### Calcul des materiaux ortho. equivalents
 ###
 
 # en membrane
-Exx = (A[0,0]*A[1,1] - A[0,1]**2)/(h*A[1,1])
-Eyy = (A[0,0]*A[1,1] - A[0,1]**2)/(h*A[0,0])
-Gxy = A[2,2]/h
-v = A[0,1]/A[1,1]
+Exx = (A[0, 0] * A[1, 1] - A[0, 1] ** 2) / (h * A[1, 1])
+Eyy = (A[0, 0] * A[1, 1] - A[0, 1] ** 2) / (h * A[0, 0])
+Gxy = A[2, 2] / h
+v = A[0, 1] / A[1, 1]
 print("Materiau ortho. membrane")
-print('Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v)
+print(f"Ex: {Exx:.3f}, Ey: {Eyy:.3f}, Gxy: {Gxy:.3f}, nu: {v:.3f}")
 
 # en flexion
-Exx = 12.0*(D[0,0]*D[1,1] - D[0,1]**2)/(h**3*D[1,1])
-Eyy = 12.0*(D[0,0]*D[1,1] - D[0,1]**2)/(h**3*D[0,0])
-Gxy = 12.0*D[2,2]/h**3
-v = D[0,1]/D[1,1]
+Exx = 12.0 * (D[0, 0] * D[1, 1] - D[0, 1] ** 2) / (h**3 * D[1, 1])
+Eyy = 12.0 * (D[0, 0] * D[1, 1] - D[0, 1] ** 2) / (h**3 * D[0, 0])
+Gxy = 12.0 * D[2, 2] / h**3
+v = D[0, 1] / D[1, 1]
 print("Materiau ortho. flexion")
-print('Ex: ', Exx, 'Ey: ', Eyy, 'Gxy: ', Gxy, 'nu: ', v)
-
+print(f"Ex: {Exx:.3f}, Ey: {Eyy:.3f}, Gxy: {Gxy:.3f}, nu: {v:.3f}")
