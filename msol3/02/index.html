@@ -15,6 +15,10 @@
         <link rel="canonical" href="http://gcouegnat.github.io/msol3/02/">
       
       
+        <link rel="prev" href="../01/">
+      
+      
+        <link rel="next" href="../tutoriels/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Endommagement des plis - Matériaux et Structures Composites</title>
+        <title>Séance 2 - Matériaux et Structures Composites</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#endommagement-des-plis" class="md-skip">
+        <a href="#modelisation-de-lendommagement-des-plis" class="md-skip">
           Aller au contenu
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Endommagement des plis
+              Séance 2
             
           </span>
         </div>
@@ -245,6 +249,97 @@
       
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Séance 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Séance 2
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cours
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     <li class="md-nav__item">
@@ -296,36 +391,21 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cours">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modele-dendommagement-de-hashin" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modèle d&rsquo;endommagement de Hashin
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anatomie-dun-fichier-inp" class="md-nav__link">
-    <span class="md-ellipsis">
-      Anatomie d&rsquo;un fichier *.inp
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#exercices" class="md-nav__link">
     <span class="md-ellipsis">
       Exercices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références
     </span>
   </a>
   
@@ -347,35 +427,44 @@
 
 
 
-<h1 id="endommagement-des-plis">Endommagement des plis</h1>
+<h1 id="modelisation-de-lendommagement-des-plis">Modélisation de l&rsquo;endommagement des plis</h1>
 <h2 id="cours">Cours</h2>
-<h3 id="modele-dendommagement-de-hashin">Modèle d&rsquo;endommagement de Hashin</h3>
-<p><a href="assets/pdf/cours2.pdf">Support du cours [pdf] </a></p>
+<p><a href="../assets/pdf/EMM9-MSOL3_02.pdf">Support du cours [pdf] </a></p>
 <ul>
-<li>Modes d&rsquo;endommagement ; critère d&rsquo;amorçage ; critère de propagation ; régularisation</li>
-<li>Implémentation du modèle de Hashin dans Abaqus <a href="../assets/pdf/hashin.pdf">[pdf]</a></li>
+<li>Phénoménologie de l&rsquo;endommagement des plis UD</li>
+<li>Ingrédients d&rsquo;un modèle d&rsquo;endommagement</li>
+<li>Modèle de Hashin</li>
 </ul>
-<h3 id="anatomie-dun-fichier-inp">Anatomie d&rsquo;un fichier <code>*.inp</code></h3>
-<p><a href="assets/pdf/tp2a.pdf">Support du cours [pdf]</a></p>
-<ul>
-<li>Exemple d&rsquo;un maillage au format Abaqus : <a href="../assets/inp/mesh1.inp">mesh1.inp</a></li>
-<li>Exemple d&rsquo;un fichier de calcul : <a href="../assets/inp/calcul-endo-1.inp">calcul-endo-1.inp</a></li>
-</ul>
-<p>Pour lancer le calcul <code>calcul-endo-1.inp</code> en ligne de commande, dans un terminal tapez</p>
+<!-- ### Anatomie d'un fichier `*.inp`
+
+[Support du cours [pdf]](assets/pdf/tp2a.pdf)
+
+* Exemple d'un maillage au format Abaqus : [mesh1.inp](assets/inp/mesh1.inp)
+* Exemple d'un fichier de calcul : [calcul-endo-1.inp](assets/inp/calcul-endo-1.inp)
+
+
+
+Pour lancer le calcul `calcul-endo-1.inp` en ligne de commande, dans un terminal tapez
+
+
 <div class="codehilite"><pre><span></span><code>abaqus<span class="w"> </span>interactive<span class="w"> </span><span class="nv">job</span><span class="o">=</span>moncalcul<span class="w"> </span><span class="nv">input</span><span class="o">=</span>calcul-endo-1
 </code></pre></div>
 
-<p>Pour ouvrir un terminal Abaqus :</p>
-<ul>
-<li>Sous Linux (ENSEIRB-MATMECA) : Applications / Autres / Simulia Abaqus 6.xx</li>
-<li>Sous Linux (accès à distance) : voir <a href="https://moodle.bordeaux-inp.fr/pluginfile.php/131270/mod_folder/content/0/20200403_procedure-abaqus.pdf?forcedownload=1">Exécution d&rsquo;Abaqus à partir du bureau à distance [pdf]</a></li>
-<li>Sous Windows (version Student) : Démarrer / SIMULIA / Abaqus Commands</li>
-</ul>
+
+
+Pour ouvrir un terminal Abaqus :
+
+* Sous Linux (ENSEIRB-MATMECA) : Applications / Autres / Simulia Abaqus 6.xx
+* Sous Linux (accès à distance) : voir [Exécution d'Abaqus à partir du bureau à distance [pdf]](https://moodle.bordeaux-inp.fr/pluginfile.php/131270/mod_folder/content/0/20200403_procedure-abaqus.pdf?forcedownload=1)
+* Sous Windows (version Student) : Démarrer / SIMULIA / Abaqus Commands -->
+
 <h2 id="exercices">Exercices</h2>
-<p><a href="assets/pdf/tp2b.pdf">Simulation de la rupture d&rsquo;une éprouvette trouée [pdf]</a></p>
+<p>L&rsquo;exercice concerne la simulation de l&rsquo;endommagement et la prévision de la rupture d&rsquo;une éprouvette trouée avec un empilement quasi-iso à travers la mise en oeuvre du modèle de Hashin.</p>
+<p><a href="../assets/pdf/EMM9-MSOL3_TP02.pdf">Enoncé de l&rsquo;exercice [pdf]</a></p>
+<h2 id="references">Références</h2>
 <ul>
-<li>Fichier de calcul :  <a href="../assets/inp/calcul-endo-1.inp">calcul-endo-1.inp</a></li>
-<li>Maillages :  <a href="../assets/inp/mesh1.inp">mesh1.inp</a> et <a href="../assets/inp/mesh2.inp">mesh2.inp</a></li>
+<li>Documentation de l&rsquo;implémentation du modèle de Hashin dans Abaqus <a href="../assets/pdf/abaqus-hashin.pdf">[pdf]</a></li>
+<li>A. Matzenmiller, et al., A constitutive model for anisotropic damage in fiber-composites, <em>Mechanics of Materials</em> 20 (1995) 125–152. <a href="../assets/pdf/matzenmiller1995.pdf">[pdf]</a></li>
 </ul>
 
 
