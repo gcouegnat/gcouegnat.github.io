@@ -15,6 +15,10 @@
         <link rel="canonical" href="http://gcouegnat.github.io/msol3/03/">
       
       
+        <link rel="prev" href="../02/">
+      
+      
+        <link rel="next" href="../tutoriels/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Endommagement interlaminaire - Matériaux et Structures Composites</title>
+        <title>Séance 3 - Matériaux et Structures Composites</title>
       
     
     
@@ -72,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#endommagement-interlaminaire" class="md-skip">
+        <a href="#contraintes-hors-plan-et-endommagement-interlaminaire" class="md-skip">
           Aller au contenu
         </a>
       
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Endommagement interlaminaire
+              Séance 3
             
           </span>
         </div>
@@ -267,6 +271,88 @@
       
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Séance 3
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Séance 3
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cours
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     <li class="md-nav__item">
@@ -318,30 +404,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cours">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#origines-des-contraintes-hors-plan" class="md-nav__link">
-    <span class="md-ellipsis">
-      Origines des contraintes hors-plan
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modele-de-zones-cohesives-czm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modèle de zones cohésives (CZM)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -350,30 +412,6 @@
       Exercices
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Exercices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exercice-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercice 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exercice-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercice 2
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -393,64 +431,21 @@
 
 
 
-<h1 id="endommagement-interlaminaire">Endommagement interlaminaire</h1>
+<h1 id="contraintes-hors-plan-et-endommagement-interlaminaire">Contraintes hors-plan et endommagement interlaminaire</h1>
 <p>Le but de cette séance est d&rsquo;aller vers la simulation du délaminage dans les
 composites stratifiés.</p>
 <h2 id="cours">Cours</h2>
-<p><a href="assets/pdf/cours3.pdf">Support de cours [pdf]</a></p>
+<p><a href="../assets/pdf/EMM9-MSOL3_03.pdf">Support de cours [pdf]</a></p>
 <p>Dans un premier temps, nous verrons quelles sont les <em>sources de contraintes
 hors-plan</em> pouvant conduire au délaminage. Nous verrons ensuite comment
 introduire numériquement le délaminage à travers l&rsquo;utilisation de <em>modèles de
 zones cohésives</em> (CZM).</p>
-<h3 id="origines-des-contraintes-hors-plan">Origines des contraintes hors-plan</h3>
-<ul>
-<li>théorie des stratifiés ; hypothèse de Saint-Venant</li>
-<li>bords libres, singularités<ul>
-<li>effet Poisson &rarr; (\sigma_{23}) et (\sigma_{33}) </li>
-<li>empilement  (\pm\theta)  &rarr; (\sigma_{13})</li>
-</ul>
-</li>
-</ul>
-<h3 id="modele-de-zones-cohesives-czm">Modèle de zones cohésives (CZM)</h3>
-<ul>
-<li>Principe ; formulation</li>
-<li>Précautions numériques</li>
-</ul>
 <h2 id="exercices">Exercices</h2>
-<h3 id="exercice-1">Exercice 1</h3>
-<p>La première serie d&rsquo;exercice vous propose de visualiser les états de
-contraintes hors-plan dus à l&rsquo;effet Poisson dans le cas d&rsquo;un empilement [0/90]s
-et au cisaillement interfacial pour un empilement [+45/-45]s.</p>
-<p><a href="assets/pdf/tp3a.pdf">Enoncé des exercices [pdf] </a></p>
-<ul>
-<li>Fichier *.inp : <a href="../assets/inp/calcul1.inp">calcul1.inp</a></li>
-<li>
-<p>Maillage cas [0/90]s : </p>
-<ul>
-<li><a href="../assets/inp/mesh1-twoplies-oneperply.inp">mesh1-twoplies-oneperply.inp</a></li>
-<li><a href="../assets/inp/mesh1-twoplies-fourperply.inp">mesh1-twoplies-fourperply.inp</a></li>
-<li><a href="../assets/inp/mesh1-twoplies-eightperply.inp">mesh1-twoplies-eightperply.inp</a></li>
-</ul>
-</li>
-<li>
-<p>Maillage cas [+45/-45]s : </p>
-<ul>
-<li><a href="../assets/inp/mesh2-twoplies-oneperply.inp">mesh2-twoplies-oneperply.inp</a></li>
-<li><a href="../assets/inp/mesh2-twoplies-fourperply.inp">mesh2-twoplies-fourperply.inp</a></li>
-<li><a href="../assets/inp/mesh2-twoplies-eightperply.inp">mesh2-twoplies-eightperply.inp</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="exercice-2">Exercice 2</h3>
-<p>Le second exercice vous propose d&rsquo;utiliser des éléments CZM pour simuler un <a href="https://www.youtube.com/watch?v=ssy9ReoC46Y">essai DCB</a>.</p>
+<p><a href="../assets/pdf/EMM9-MSOL3_TP03.pdf">Enoncé des exercices [pdf] </a></p>
+<p>Le premier exercice vous propose de simuler l&rsquo;effet de bords libres sur la génération de
+contraintes hors-plan dans le cas des empilements [0/90]s et [+45/-45]s, comme abordé dans la partie cours.</p>
+<p>Le second exercice vous propose d&rsquo;utiliser des éléments de zones cohésives pour simuler un <a href="https://www.youtube.com/watch?v=ssy9ReoC46Y">essai DCB</a>, qui est l&rsquo;un des <a href="https://www.astm.org/Standards/D5528.htm">essais standards</a> pour caractériser les propriétés interlaminaires de stratifiés.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ssy9ReoC46Y?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-<p>L&rsquo;essai DCB est l&rsquo;un des <a href="https://www.astm.org/Standards/D5528.htm">essais standards</a> pour caractériser les propriétés interlaminaires de stratifiés composites.</p>
-<p><a href="assets/pdf/tp3b.pdf">Enoncé de l&rsquo;exercice [pdf]</a></p>
-<ul>
-<li>Fichier *.inp : <a href="../assets/inp/calcul-dcb.inp">calcul-dcb.inp</a></li>
-<li>Maillage : <a href="../assets/inp/mesh-dcb-fine.inp">mesh-dcb-fine.inp</a></li>
-</ul>
 
 
 
